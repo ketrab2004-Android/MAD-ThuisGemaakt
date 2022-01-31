@@ -1,10 +1,14 @@
 part of styles;
 
 abstract class Base {
-  static const Color theme = Colors.redAccent;
+  MaterialColor themeSwatch = Colors.red;
+  Color? get theme { return this.themeSwatch[500]; }
 
-  static const Color text = Colors.black;
-  static const Color disabledText = Colors.black12;
+  Color navigationIconColor = Colors.black;
+  Color navigationIconSelectedColor = Colors.black12;
 
-  static const Color background = Colors.white;
+  Color text = Colors.black;
+  Color disabledText = Colors.black12;
+
+  Color background = Colors.white;
 }
