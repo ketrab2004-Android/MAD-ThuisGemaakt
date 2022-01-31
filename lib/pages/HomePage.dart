@@ -12,11 +12,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Widgets.H1(Constants.Text.thisWeekTitle),
+            Center(
+              child: GridView.count(
+                crossAxisCount: 2,
 
+                mainAxisSpacing: Constants.Sizes.weekVSpacing,
+                crossAxisSpacing: Constants.Sizes.weekHSpacing,
+
+                children: <Widget>[
+
+                ],
+              ),
+            ),
           ],
         ),
       ),
