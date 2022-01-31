@@ -1,8 +1,7 @@
 part of widgets;
 
 class H1 extends StatelessWidget {
-  H1({
-    required this.text,
+  H1(this.text, {
     this.key,
     this.align,
     this.locale,
@@ -21,7 +20,7 @@ class H1 extends StatelessWidget {
       this.text,
       key: this.key,
 
-      textAlign: this.align,
+      textAlign: this.align ?? TextAlign.left,
       textScaleFactor: this.scaleFactor,
 
       locale: this.locale,
