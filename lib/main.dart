@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thuis_gemaakt/pages/.dart' as Pages;
+import 'package:thuis_gemaakt/pages/l.dart' as Pages;
 
 void main() {
   runApp(MyApp());
