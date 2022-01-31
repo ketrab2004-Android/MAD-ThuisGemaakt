@@ -1,14 +1,16 @@
 part of widgets;
 
 class H1 extends StatelessWidget {
-  H1(this.text, {
+  H1(this.style, this.text, {
     this.key,
     this.align,
     this.locale,
     this.scaleFactor,
   });
 
+  final Styles.Base style;
   final String text;
+
   final Key? key;
   final TextAlign? align;
   final Locale? locale;
