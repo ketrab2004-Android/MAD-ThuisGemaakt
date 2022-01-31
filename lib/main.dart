@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thuis_gemaakt/pages/.dart';
+import 'package:thuis_gemaakt/pages/.dart' as Pages;
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Flutter Demo Home Page'),
+      home: Pages.HomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
