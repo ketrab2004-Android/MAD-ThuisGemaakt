@@ -9,3 +9,4 @@ part 'H1.dart';
 part 'H2.dart';
 part 'H5.dart';
 part 'ThisWeekDish.dart';
+part 'ExploreDish.dart';
