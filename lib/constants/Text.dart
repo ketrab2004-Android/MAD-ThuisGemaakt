@@ -31,5 +31,5 @@ class Text {
   static const defaultUsername = "JohnDoe123";
 
 
-  static const fridgeTitle = "Koelkast";
+  static const fridgeTitle = "Jouw koelkast";
 }
