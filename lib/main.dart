@@ -51,7 +51,7 @@ void main() {
             settings: settings,
           );
 
-        case '/':
+        case '/home':
         default:
           return PageTransition(
             child: Pages.Home(title: Constants.Text.appTitle, style: style),
