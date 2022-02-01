@@ -4,6 +4,10 @@ abstract class Base {
   MaterialColor themeSwatch = Colors.red;
   Color? get theme { return this.themeSwatch[500]; }
 
+  TextStyle errorText = new TextStyle(
+    color: Colors.red,
+  );
+
   TextStyle h1 = new TextStyle(
     color: Colors.black,
     fontSize: 20.0,
