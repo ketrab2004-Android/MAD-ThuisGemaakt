@@ -32,4 +32,7 @@ class Text {
 
 
   static const fridgeTitle = "Jouw koelkast";
+
+  static const fridgeIngredient = "Ingrediënt";
+  static const fridgeAmount = "Hoeveelheid";
 }
