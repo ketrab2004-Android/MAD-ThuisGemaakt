@@ -25,4 +25,14 @@ class Dish {
       checked: checked,
     );
   }
+
+  factory Dish.fromJson(Map<String, dynamic> json) {
+    return new Dish(
+      imageUrl: json["imageUrl"],
+      length: Duration(seconds: json["length"]),
+      dishName: json["dishName"],
+      favourited: json["favourited"] ?? false,
+      checked: json["checked"] ?? false,
+    );
+  }
 }
