@@ -6,11 +6,13 @@ class H2 extends H1 {
     this.align,
     this.locale,
     this.scaleFactor,
+    this.mergeStyle
   }) : super(style, text,
-      key: key,
-      align: align,
-      locale: locale,
-      scaleFactor: scaleFactor
+    key: key,
+    align: align,
+    locale: locale,
+    scaleFactor: scaleFactor,
+    mergeStyle: mergeStyle,
   );
 
   final Styles.Base style;
@@ -20,6 +22,8 @@ class H2 extends H1 {
   final TextAlign? align;
   final Locale? locale;
   final double? scaleFactor;
+
+  final TextStyle? mergeStyle;
 
   @override
   TextStyle getStyle()

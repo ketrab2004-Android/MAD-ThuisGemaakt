@@ -6,6 +6,7 @@ class H1 extends StatelessWidget {
     this.align,
     this.locale,
     this.scaleFactor,
+    this.mergeStyle,
   });
 
   final Styles.Base style;
@@ -15,6 +16,7 @@ class H1 extends StatelessWidget {
   final TextAlign? align;
   final Locale? locale;
   final double? scaleFactor;
+  final TextStyle? mergeStyle;
 
   TextStyle getStyle()
   {
@@ -30,7 +32,7 @@ class H1 extends StatelessWidget {
       textAlign: this.align ?? TextAlign.left,
       textScaleFactor: this.scaleFactor,
 
-      style: getStyle(),
+      style: mergeStyle != null ? getStyle().merge(mergeStyle) : getStyle(),
 
       locale: this.locale,
     );
