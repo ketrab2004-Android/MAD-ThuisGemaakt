@@ -5,6 +5,8 @@ class Dish {
     required this.imageUrl,
     required this.length,
     required this.dishName,
+    required this.favourites,
+    required this.likes,
     this.favourited = false,
     this.checked = false,
   });
@@ -12,6 +14,10 @@ class Dish {
   final String imageUrl;
   final Duration length;
   final String dishName;
+
+  final int likes;
+  final int favourites;
+
   bool favourited;
   bool checked;
 
@@ -33,6 +39,8 @@ class Dish {
       dishName: json["dishName"],
       favourited: json["favourited"] ?? false,
       checked: json["checked"] ?? false,
+      favourites: json["favourites"],
+      likes: json["likes"],
     );
   }
 }
