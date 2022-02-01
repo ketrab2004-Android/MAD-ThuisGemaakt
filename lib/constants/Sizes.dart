@@ -18,4 +18,6 @@ class Sizes {
 
   static const double accountIconSize = 50.0;
   static const EdgeInsetsGeometry accountSettingsItemPadding = EdgeInsets.fromLTRB(5.0, 10.0, 0,0);
+
+  static const EdgeInsetsGeometry fridgeItemPadding = EdgeInsets.fromLTRB(0, 5.0, 0, 5.0);
 }
