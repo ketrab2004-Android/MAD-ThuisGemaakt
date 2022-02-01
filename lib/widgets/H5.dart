@@ -6,13 +6,15 @@ class H5 extends H1 {
     this.align,
     this.locale,
     this.scaleFactor,
-    this.mergeStyle
+    this.mergeStyle,
+    this.overflow,
   }) : super(style, text,
     key: key,
     align: align,
     locale: locale,
     scaleFactor: scaleFactor,
     mergeStyle: mergeStyle,
+    overflow: overflow,
   );
 
   final Styles.Base style;
@@ -23,6 +25,7 @@ class H5 extends H1 {
   final Locale? locale;
   final double? scaleFactor;
   final TextStyle? mergeStyle;
+  final TextOverflow? overflow;
 
   @override
   TextStyle getStyle()
