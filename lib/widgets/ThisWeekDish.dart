@@ -19,6 +19,7 @@ class ThisWeekDish extends StatelessWidget {
   final bool? favourited;
   final bool? checked;
 
+  final void Function()? openDish;
   final void Function()? onHeart;
   final void Function()? onUnheart;
 
@@ -54,6 +55,7 @@ class ThisWeekDish extends StatelessWidget {
                 this.imageUrl,
                 fit: BoxFit.cover,
               ),
+              onTap: openDish ?? (){},
               onDoubleTap: onHeart ?? (){},
             ),
           ),
