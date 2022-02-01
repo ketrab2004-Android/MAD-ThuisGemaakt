@@ -7,9 +7,42 @@ class Home extends StatefulWidget {
 
   @override
   _HomeState createState() => _HomeState();
+
+  late Future< List<Data.Dish> > dishes;
+  // https://docs.flutter.dev/cookbook/networking/fetch-data
+  Future< List<Data.Dish> > loadDishes() async {
+    final response = await http.get( Uri.parse("https://pastebin.com/raw/100zC2vc") );
+
+    List<Data.Dish> _dishes = List.empty(growable: true);
+
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+
+      List<dynamic> raw = jsonDecode(response.body);
+
+      for (int i = 0; i < raw.length; i++) {
+        _dishes.add(
+          Data.Dish.fromJson(raw[i]),
+        );
+      }
+
+      return _dishes;
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception("Failed to load dishes");
+    }
+  }
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+    widget.dishes = widget.loadDishes();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Widgets.AppBase(
@@ -17,9 +50,10 @@ class _HomeState extends State<Home> {
       selectedTab: 0,
       body: RefreshIndicator(
         onRefresh: () {
-          return Future.delayed(
-            Duration(milliseconds: 500),
-          );
+          setState((){
+            widget.dishes = widget.loadDishes();
+          });
+          return widget.dishes;
         },
         child: ListView(
           padding: Constants.Sizes.pagePadding,
@@ -32,49 +66,43 @@ class _HomeState extends State<Home> {
                 align: TextAlign.left,
               ),
             ),
-            GridView.count(
-              primary: false,
-              crossAxisCount: 2,
+            FutureBuilder <List<Data.Dish>>(
+              future: widget.dishes,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  // return Widgets.H2(widget.style, snapshot.data.toString());
 
-              physics: NeverScrollableScrollPhysics(), // to disable GridView's scrolling
-              shrinkWrap: true, // You won't see infinite size error
+                  return new GridView.builder(
+                    primary: false,
 
-              mainAxisSpacing: Constants.Sizes.weekVSpacing,
-              crossAxisSpacing: Constants.Sizes.weekHSpacing,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: Constants.Sizes.weekVSpacing,
+                      crossAxisSpacing: Constants.Sizes.weekHSpacing,
+                    ),
 
-              children: <Widget>[
-                Widgets.ThisWeekDish(
-                  widget.style,
-                  imageUrl: "https://www.cultiviz.nl/wp-content/uploads/2019/01/pizza-vegetarisch-bbq.jpg",
-                  dishName: "Pizza Deluzo",
-                  length: Duration(minutes: 15),
-                  favourited: true,
-                ),
-                Widgets.ThisWeekDish(
-                  widget.style,
-                  imageUrl: "https://www.allesoveritaliaanseten.nl/wp-content/uploads/2015/03/Vegetarische-pasta.jpg",
-                  dishName: "Spaghetti",
-                  length: Duration(hours: 1, minutes: 30),
-                ),
-                Widgets.ThisWeekDish(
-                  widget.style,
-                  imageUrl: "https://assets.epicurious.com/photos/5e4c65cfd57b3b000872c652/4:3/w_3604,h_2703,c_limit/VeggieBurger_RECIPE_IG_021320_516_VOG_final.jpg",
-                  dishName: "Gezonde Burger",
-                  length: Duration(minutes: 30),
-                ),
-                Widgets.ThisWeekDish(
-                  widget.style,
-                  imageUrl: "https://www.puursuzanne.nl/wp-content/uploads/2016/09/DSC_2136-1024x640.jpg",
-                  dishName: "Salade",
-                  length: Duration(minutes: 5),
-                ),
-                Widgets.ThisWeekDish(
-                  widget.style,
-                  imageUrl: "https://www.culy.nl/wp-content/uploads/2013/03/Culy-Homemade-vega-spring-rolls-met-mango-en-edamame.jpg3_.jpg",
-                  dishName: "Culy?",
-                  length: Duration(minutes: 69),
-                ),
-              ],
+                    itemCount: snapshot.data!.length,
+
+                    itemBuilder: (context, index) {
+                      return snapshot.data![index].generateWidget(widget.style);
+                    },
+
+                    physics: NeverScrollableScrollPhysics(), // to disable GridView's scrolling
+                    shrinkWrap: true, // You won't see infinite size error
+                  );
+                } else if (snapshot.hasError) {
+                  throw Exception(snapshot.error);
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Widgets.H2(widget.style, "There was an error loading the dishes"),
+                      Widgets.H2(widget.style, snapshot.error.toString(), mergeStyle: widget.style.errorText),
+                    ],
+                  );
+                } else {
+                  return Widgets.H2(widget.style, "Loading...",);
+                }
+              },
             ),
           ],
         ),
