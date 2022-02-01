@@ -20,4 +20,10 @@ class Text {
   static const favouritesTitle = "Favorieten";
 
   static const exploreTitle = "Feed";
+
+  static const accountTheme = "Thema";
+  static const accountVegetarianToggle = "Filter niet vegatarische maaltijden weg";
+  static const accountDairyToggle = "Filter lactose bevattende maaltijden weg";
+
+  static const defaultUsername = "JohnDoe123";
 }
