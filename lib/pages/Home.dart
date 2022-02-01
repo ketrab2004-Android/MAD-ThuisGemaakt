@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
               crossAxisSpacing: Constants.Sizes.weekHSpacing,
 
               children: <Widget>[
-                Expanded(
+                Container(
                   child: Column(
                     children: <Widget>[
                       Image.network(
@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                Expanded(
+                Container(
                   child: Column(
                     children: <Widget>[
                       Image.network(
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                Expanded(
+                Container(
                   child: Column(
                     children: <Widget>[
                       Image.network(
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                Expanded(
+                Container(
                   child: Column(
                     children: <Widget>[
                       Image.network(
