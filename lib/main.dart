@@ -14,7 +14,7 @@ void main() {
 
     initialRoute: '/',
     routes: <String, WidgetBuilder>{
-      '/': (ctx) => Pages.HomePage(title: Constants.Text.appTitle, style: style),
+      '/': (ctx) => Pages.Home(title: Constants.Text.appTitle, style: style),
       '/favourites': (ctx) => Pages.Favourites(title: Constants.Text.appTitle, style: style),
       '/explore': (ctx) => Pages.Explore(title: Constants.Text.appTitle, style: style),
       '/account': (ctx) => Pages.Account(title: Constants.Text.appTitle, style: style),
