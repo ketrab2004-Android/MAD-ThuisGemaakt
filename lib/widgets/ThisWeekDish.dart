@@ -33,7 +33,10 @@ class ThisWeekDish extends StatelessWidget {
       if (toReturn.length > 0) {
         toReturn += ' ';
       }
-      toReturn += "${dur.inMinutes.remainder(60)} ${Constants.Text.timeMinutes}";
+      int min = dur.inMinutes.remainder(60);
+      if (min != 0) {
+        toReturn += "${min} ${Constants.Text.timeMinutes}";
+      }
     }
 
     return toReturn;
@@ -58,23 +61,28 @@ class ThisWeekDish extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  H2(style, this.dishName,
-                    align: TextAlign.left,
-                  ),
-                  H5(style, ThisWeekDish.durationToString(this.length),
-                    align: TextAlign.left,
-                  ),
-                ],
-              ),
-              GestureDetector(
-                child: Icon(
-                  favourited ?? false ? Icons.favorite : Icons.favorite_border,
+              Flexible(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    H2(style, this.dishName,
+                      align: TextAlign.left,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    H5(style, ThisWeekDish.durationToString(this.length),
+                      align: TextAlign.left,
+                    ),
+                  ],
                 ),
-                onTap: onUnheart ?? (){},
+              ),
+              Flexible(
+                child: GestureDetector(
+                  child: Icon(
+                    favourited ?? false ? Icons.favorite : Icons.favorite_border,
+                  ),
+                  onTap: onUnheart ?? (){},
+                ),
               ),
             ],
           ),
