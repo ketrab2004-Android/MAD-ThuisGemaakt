@@ -25,6 +25,8 @@ class H1 extends StatelessWidget {
       textAlign: this.align ?? TextAlign.left,
       textScaleFactor: this.scaleFactor,
 
+      style: this.style.h1,
+
       locale: this.locale,
     );
   }
