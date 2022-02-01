@@ -10,8 +10,14 @@ class Text {
   static const accountName = "Account";
   static const fridgeName = "Koelkast";
 
+  static const loadingText = "Loading...";
+
   static const timeHours = "uren";
   static const timeMinutes = "minuten";
 
   static const thisWeekTitle = "Gerechten voor deze week";
+
+  static const favouritesTitle = "Favorieten";
+
+  static const exploreTitle = "Feed";
 }

@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
                     ],
                   );
                 } else {
-                  return Widgets.H2(widget.style, "Loading...",);
+                  return Widgets.H2(widget.style, Constants.Text.loadingText);
                 }
               },
             ),
