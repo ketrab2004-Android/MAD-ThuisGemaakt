@@ -8,6 +8,14 @@ abstract class Base {
     color: Colors.black,
     fontSize: 20.0,
   );
+  TextStyle h2 = new TextStyle(
+    color: Colors.black,
+    fontSize: 16.0,
+  );
+  TextStyle h5 = new TextStyle(
+    color: Colors.black38,
+    fontSize: 10.0,
+  );
 
   Color navigationIconColor = Colors.black;
   Color navigationIconSelectedColor = Colors.black45;
