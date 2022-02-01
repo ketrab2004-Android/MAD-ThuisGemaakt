@@ -33,6 +33,9 @@ abstract class Base {
     fontSize: 12.0,
   );
 
+  Color checkIconColor = Colors.white;
+  Color checkIconBorderColor = Colors.black;
+
   Color text = Colors.black;
   Color disabledText = Colors.black26;
 
