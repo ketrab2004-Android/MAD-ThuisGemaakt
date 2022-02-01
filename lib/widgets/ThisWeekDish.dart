@@ -7,6 +7,7 @@ class ThisWeekDish extends StatelessWidget {
     required this.dishName,
     this.favourited,
     this.checked,
+    this.openDish,
     this.onHeart,
     this.onUnheart,
   });
