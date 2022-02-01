@@ -36,6 +36,10 @@ abstract class Base {
   Color checkIconColor = Colors.white;
   Color checkIconBorderColor = Colors.black;
 
+  TableBorder fridgeTableBorder = TableBorder(
+    horizontalInside: BorderSide(color: Colors.black38),
+  );
+
   Color text = Colors.black;
   Color disabledText = Colors.black26;
 
