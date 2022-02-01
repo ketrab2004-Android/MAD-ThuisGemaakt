@@ -16,6 +16,11 @@ class H1 extends StatelessWidget {
   final Locale? locale;
   final double? scaleFactor;
 
+  TextStyle getStyle()
+  {
+    return this.style.h1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -25,7 +30,7 @@ class H1 extends StatelessWidget {
       textAlign: this.align ?? TextAlign.left,
       textScaleFactor: this.scaleFactor,
 
-      style: this.style.h1,
+      style: getStyle(),
 
       locale: this.locale,
     );
