@@ -6,3 +6,7 @@ import 'package:thuis_gemaakt/constants/l.dart' as Constants;
 import 'package:thuis_gemaakt/styles/l.dart' as Styles;
 
 part 'HomePage.dart';
+part 'Favourites.dart';
+part 'Explore.dart';
+part 'Account.dart';
+part 'Fridge.dart';
