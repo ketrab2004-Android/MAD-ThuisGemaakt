@@ -43,45 +43,36 @@ class _HomeState extends State<Home> {
               crossAxisSpacing: Constants.Sizes.weekHSpacing,
 
               children: <Widget>[
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Image.network(
-                        "https://www.cultiviz.nl/wp-content/uploads/2019/01/pizza-vegetarisch-bbq.jpg",
-                      ),
-                      Widgets.H1(widget.style, "aaa"),
-                    ],
-                  ),
+                Widgets.ThisWeekDish(
+                  widget.style,
+                  imageUrl: "https://www.cultiviz.nl/wp-content/uploads/2019/01/pizza-vegetarisch-bbq.jpg",
+                  dishName: "Pizza Deluzo",
+                  length: Duration(minutes: 15),
+                  favourited: true,
                 ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Image.network(
-                        "https://www.cultiviz.nl/wp-content/uploads/2019/01/pizza-vegetarisch-bbq.jpg",
-                      ),
-                      Widgets.H1(widget.style, "aaa"),
-                    ],
-                  ),
+                Widgets.ThisWeekDish(
+                  widget.style,
+                  imageUrl: "https://www.allesoveritaliaanseten.nl/wp-content/uploads/2015/03/Vegetarische-pasta.jpg",
+                  dishName: "Spaghetti",
+                  length: Duration(hours: 1, minutes: 30),
                 ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Image.network(
-                        "https://www.cultiviz.nl/wp-content/uploads/2019/01/pizza-vegetarisch-bbq.jpg",
-                      ),
-                      Widgets.H1(widget.style, "aaa"),
-                    ],
-                  ),
+                Widgets.ThisWeekDish(
+                  widget.style,
+                  imageUrl: "https://assets.epicurious.com/photos/5e4c65cfd57b3b000872c652/4:3/w_3604,h_2703,c_limit/VeggieBurger_RECIPE_IG_021320_516_VOG_final.jpg",
+                  dishName: "Gezonde Burger",
+                  length: Duration(minutes: 30),
                 ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      Image.network(
-                        "https://www.cultiviz.nl/wp-content/uploads/2019/01/pizza-vegetarisch-bbq.jpg",
-                      ),
-                      Widgets.H1(widget.style, "aaa"),
-                    ],
-                  ),
+                Widgets.ThisWeekDish(
+                  widget.style,
+                  imageUrl: "https://www.puursuzanne.nl/wp-content/uploads/2016/09/DSC_2136-1024x640.jpg",
+                  dishName: "Salade",
+                  length: Duration(minutes: 5),
+                ),
+                Widgets.ThisWeekDish(
+                  widget.style,
+                  imageUrl: "https://www.culy.nl/wp-content/uploads/2013/03/Culy-Homemade-vega-spring-rolls-met-mango-en-edamame.jpg3_.jpg",
+                  dishName: "Culy?",
+                  length: Duration(minutes: 69),
                 ),
               ],
             ),
