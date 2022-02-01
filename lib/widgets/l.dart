@@ -6,3 +6,5 @@ import 'package:thuis_gemaakt/constants/l.dart' as Constants;
 
 part 'AppBase.dart';
 part 'H1.dart';
+part 'H2.dart';
+part 'H5.dart';
